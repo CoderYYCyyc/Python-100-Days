@@ -11,7 +11,7 @@ def main():
     # type=SOCK_RAW - 原始套接字
     server = socket(family=AF_INET, type=SOCK_STREAM)
     # 2.绑定IP地址和端口(区分不同的服务)
-    server.bind(('localhost', 6789))
+    server.bind(('127.0.0.1', 6789))
     # 3.开启监听 - 监听客户端连接到服务器
     server.listen(512)
     print('服务器启动开始监听...')

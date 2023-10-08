@@ -8,7 +8,7 @@ Date: 2018-03-26
 
 from docx import Document
 
-doc = Document('./res/用函数还是用复杂的表达式.docx')
+doc = Document('Day01-15/code/Day15/res/用函数还是用复杂的表达式.docx')
 print(len(doc.paragraphs))
 print(doc.paragraphs[0].text)
 # print(doc.paragraphs[1].runs[0].text)

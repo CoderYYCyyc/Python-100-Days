@@ -17,10 +17,10 @@ data = [
 sheet.append(['学号', '姓名', '性别', '电话'])
 for row in data:
     sheet.append(row)
-tab = Table(displayName="Table1", ref="A1:E5")
+tab = Table(displayName="Table1", ref="A1:E6")
 
 tab.tableStyleInfo = TableStyleInfo(
-    name="TableStyleMedium9", showFirstColumn=False,
+    name="TableStyleMedium8", showFirstColumn=False,
     showLastColumn=False, showRowStripes=True, showColumnStripes=True)
 sheet.add_table(tab)
-workbook.save('./res/全班学生数据.xlsx')
+workbook.save('Day01-15/code/Day15/res/全班学生数据.xlsx')
