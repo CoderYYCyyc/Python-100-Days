@@ -1,32 +1,22 @@
-"""
-输出10行的杨辉三角 - 二项式的n次方展开系数
-1
-1 1
-1 2 1
-1 3 3 1
-1 4 6 4 1
-... ... ...
-
-
-Version: 0.1
-Author: 骆昊
-Date: 2018-03-06
-"""
-
-
 def main():
     num = int(input('Number of rows: '))
-    yh = [[]] * num
-    for row in range(len(yh)):
-        yh[row] = [None] * (row + 1)
-        for col in range(len(yh[row])):
-            if col == 0 or col == row:
-                yh[row][col] = 1
-            else:
-                yh[row][col] = yh[row - 1][col] + yh[row - 1][col - 1]
-            print(yh[row][col], end='\t')
+    yh = []  # 创建一个空列表用于存储杨辉三角
+    for row in range(num):
+        # 初始化当前行的子列表，每一行都应该是一个独立的子列表
+        current_row = [1]  # 每一行的第一个元素都是1
+        if row > 1:
+            # 计算中间的元素
+            for col in range(1, row):
+                tmp = yh[row - 1][col - 1] + yh[row - 1][col]
+                current_row.append(tmp)
+        if row > 0:
+            current_row.append(1)  # 每一行的最后一个元素都是1
+        yh.append(current_row)  # 将当前行添加到杨辉三角列表
+    # 打印杨辉三角
+    for row in yh:
+        for num in row:
+            print(num, end='\t')
         print()
-
 
 if __name__ == '__main__':
     main()
