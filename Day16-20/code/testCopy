@@ -1,0 +1,21 @@
+import copy
+
+# 浅复制/浅拷贝：创建一个新的对象，但只复制原对象的引用，不复制内部的子对象。这意味着，
+# 如果修改了原始对象或其子对象，那么复制后的对象也会受到影响。可以使用copy模块的copy()函数实现浅复制。
+#  list 中套着 list 的情况，shallow copy 中的 子list，并未从原 object 真的「独立」出来。
+# 也就是说，如果你改变原 object 的子 list 中的一个元素，你的 copy 就会跟着一起变
+original_list1 = [1, 2, [3, 4]]
+shallow_copied_list = copy.copy(original_list1)
+print(shallow_copied_list)
+original_list1[2][0] = 100
+print(shallow_copied_list)
+
+
+# 深复制/深拷贝：创建一个新的对象，并递归地复制原对象的所有子对象。这意味着，
+# 即使修改了原始对象或其子对象，复制后的对象也不会受到影响。可以使用copy模块的deepcopy()函数实现深复制。
+original_list2 = [1, 2, [3, 4]]
+deep_copied_list = copy.deepcopy(original_list2)
+print(deep_copied_list)
+original_list2 = [1, 2, 4]
+print(deep_copied_list)
+

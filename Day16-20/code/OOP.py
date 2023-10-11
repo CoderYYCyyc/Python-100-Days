@@ -63,3 +63,13 @@ class EmployeeFactory():
         elif emp_type == 'S':
             emp = Salesman(*args, **kwargs)
         return emp
+
+# 创建对象
+manager = EmployeeFactory.create('M', name='Tom')
+programmer = EmployeeFactory.create('P', name='Jerry', working_hour=40)
+salesman = EmployeeFactory.create('S', name='Spike', sales=5000)
+
+# 打印工资
+print(manager.get_salary())
+print(programmer.get_salary())
+print(salesman.get_salary())
